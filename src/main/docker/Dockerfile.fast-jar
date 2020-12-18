@@ -1,0 +1,10 @@
+FROM adoptopenjdk/openjdk11:jre-11.0.9.1_1-alpine@sha256:c7ecb2bdde17f107efa4b57957d3674a3a1fd83e564c614b4db362f445e8cfa0
+ENV QUARKUS_LAUNCH_DEVMODE=true
+RUN mkdir work
+WORKDIR /work
+COPY target/quarkus-app/ .
+ENTRYPOINT [ \
+  "java", \
+  "-jar", \
+  "quarkus-run.jar" \
+]
